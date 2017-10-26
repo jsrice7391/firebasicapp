@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title> FireBASIC </title>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1>This is the train schedule</h1>
+    </div>
+
+    <div class="container">
+        <div class="row col-md-10 col-md-offset-1" id="trainDispaly">
+
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-1">
+                <div class="form-group">
+                    <label for="trainName">Train Name</label>
+                    <input id="trainName" class="form-control" placeholder="Enter Train Name...">
+                    <label for="destination">Destination</label>
+                    <input id="destination" class="form-control" placeholder="What is the destination">
+                    <label for="firstTrain">First Train</label>
+                    <input id="firstTrain" class="form-control" placeholder="When is the first train?">
+                    <label for="frequency">Frequency</label>
+
+                    <input id="frequency" class="form-control" placeholder="How often does it arrive?">
+                    <button type="submit" class="btn btn-primary" id="submitTrain">Submit</button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
