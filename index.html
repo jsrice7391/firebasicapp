@@ -10,7 +10,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-    <script></script>
+    <script src="moment.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title> FireBASIC </title>
 </head>
@@ -22,7 +22,21 @@
 
     <div class="container">
         <div class="row col-md-10 col-md-offset-1" id="trainDispaly">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Train Name</th>
+                        <th>Destination</th>
+                        <th>Frequency</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody id="trains-display">
 
+                </tbody>
+
+            </table>
         </div>
 
 
@@ -36,7 +50,7 @@
                     <label for="destination">Destination</label>
                     <input id="destination" class="form-control" placeholder="What is the destination">
                     <label for="firstTrain">First Train</label>
-                    <input id="firstTrain" class="form-control" placeholder="When is the first train?">
+                    <input id="firstTrain" class="form-control" type="time" value="13:45:00" placeholder="When is the first train?">
                     <label for="frequency">Frequency</label>
 
                     <input id="frequency" class="form-control" placeholder="How often does it arrive?">
@@ -48,8 +62,6 @@
 
         </div>
     </div>
-
-
 
 
 
