@@ -15,7 +15,14 @@
 
   database.ref().on("value", function(snapshot) {
       console.log(snapshot.val());
-  })
+  });
+
+  function get_next_train(the_frequency, the_firstTrain) {
+      var first_train = moment(the_firstTrain, "HH:mm:ss");
+      var the_train = moment(first_train).add(the_frequency, "minutes");
+      return moment(the_train._d).format("HH:mm");
+
+  }
 
 
 
@@ -29,9 +36,10 @@
 
       //Show all the trains on the table.
       database.ref().on("child_added", function(childSnapshot) {
+          var the_arrival = get_next_train(childSnapshot.val().frequency, childSnapshot.val().firstTrain)
           $("#trains-display").append("<tr><td id='name'> " + childSnapshot.val().name +
               " </td><td id='destination'> " + childSnapshot.val().destination + " </td><td id='frequency'> " + childSnapshot.val().frequency +
-              " minutes</td><td id='next-arrival'>" + "Next Arrival" + " </td><td id='frequency'>" + "Minutes Away" + "</td></tr>"
+              " minutes</td><td id='next-arrival'>" + the_arrival + " </td><td id='frequency'>" + "Minutes Away" + "</td></tr>"
           )
       });
 
@@ -51,23 +59,8 @@
           //   The Next arrival is equal to the first train + frequency 
           var first_train = moment(train.firstTrain, "HH:mm:ss");
           console.log(first_train);
-
-
           var the_train = moment(first_train).add(train.frequency, "minutes");
-
-
-          console.log(the_train._d);
-
-
-
-
-
-
-
-          //   Minutes away is equal to next_arrival - now;
-
-
-
+          console.log(moment(the_train._d).format("hh:mm"));
 
 
 
@@ -81,12 +74,7 @@
 
 
 
-
-
-
-
-
-          //   database.ref().push(train);
+          database.ref().push(train);
       })
 
 
