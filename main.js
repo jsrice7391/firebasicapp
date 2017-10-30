@@ -37,10 +37,12 @@
       //Show all the trains on the table.
       database.ref().on("child_added", function(childSnapshot) {
           var the_arrival = get_next_train(childSnapshot.val().frequency, childSnapshot.val().firstTrain);
+          var the_train_time = moment(childSnapshot.val().firstTrain, "hh:mm:a").format("hh:mm a");
+
 
           $("#trains-display").append("<tr><td id='name'> " + childSnapshot.val().name +
               " </td><td id='destination'> " + childSnapshot.val().destination + " </td><td id='frequency'> " + childSnapshot.val().frequency +
-              " minutes</td><td>" + childSnapshot.val().firstTrain + "</td><td id='next-arrival'>" + the_arrival + " </td><td id='frequency'>" + "Minutes away" + "</td></tr>"
+              " minutes</td><td>" + the_train_time + "</td><td id='next-arrival'>" + the_arrival + " </td><td id='frequency'>" + "Minutes away" + "</td></tr>"
           )
       });
 
